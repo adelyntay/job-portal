@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # import application form class
 # extract user values from form using cleaned data dictionary
-def index(request):
+def application(request):
     if request.method == "POST":
         form = ApplicationForm(request.POST)
         if form.is_valid():
@@ -20,8 +20,14 @@ def index(request):
                                 email=email, date=date, occupation=occupation)
 
             messages.success(request, "Form submitted successfully")
-    return render(request, "index.html")
+    return render(request, "application.html")
 
 
 def about(request):
     return render(request, "about.html")
+
+
+def index(request):
+    return render(request, "index.html")
+
+
